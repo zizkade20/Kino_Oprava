@@ -86,7 +86,7 @@ namespace Kino_Oprava
                     };
 
 
-
+                    /*
 
                     SQLiteConnection connection = new SQLiteConnection("../../db/database.db3");
 
@@ -104,7 +104,7 @@ namespace Kino_Oprava
                     }
 
                     
-                    
+                    */
                     
                      
                      
