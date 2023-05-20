@@ -1,6 +1,4 @@
-﻿using kino_home;
-using SQLite;
-using SQLite;
+﻿using SQLite;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -50,7 +48,7 @@ namespace Kino_Oprava
 
 
             MessageBox.Show("Vaše data byla uložena ;)");
-            this.Close();
+            Application.Current.Shutdown();
         }
     }
 }

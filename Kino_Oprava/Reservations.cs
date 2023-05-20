@@ -7,7 +7,7 @@ using SQLite;
 using System.IO;
 using System.Security.RightsManagement;
 
-namespace kino_home
+namespace Kino_Oprava
 {
     class Reservations
     {
