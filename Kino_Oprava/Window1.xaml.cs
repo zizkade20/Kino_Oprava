@@ -16,6 +16,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using static SQLite.TableMapping;
 
+
 namespace Kino_Oprava
 {
     /// <summary>
@@ -83,25 +84,31 @@ namespace Kino_Oprava
 
                         Tag = i
                     };
-                    /*
-                    var db = new SQLiteConnection("../../db/database.db3");
-                    
-                    string query = "SELECT COUNT(*) FROM Reservations WHERE Row = @rows AND Column = @columns";
-                    int count = db.ExecuteScalar<int>(query, new { rows, columns });
 
-                    if (count > 0)
-                    {
-                        
-                    } else
+
+
+
+                    SQLiteConnection connection = new SQLiteConnection("../../db/database.db3");
+
+                    bool valuesExist = connection.Table<Reservations>().Any(record => record.Row == rows.ToString() && record.Column == columns.ToString());
+
+
+                    if (valuesExist == true)
                     {
                         button.Background = Brushes.Red;
                     }
-                    count = 0;
+                    else
+                    {
+                        button.Background = Brushes.LightGreen;
+
+                    }
+
+                    
+                    
                     
                      
                      
-                     */
-                    button.Background = Brushes.LightGreen;
+                    
                     button.Click += new RoutedEventHandler(button_Click);
                     button.Margin = new Thickness(0, 15, 0, 0);
 
@@ -126,6 +133,7 @@ namespace Kino_Oprava
 
 
         }
+
         void button_Click(object sender, RoutedEventArgs e)
         {
             Button button = (Button)sender;
