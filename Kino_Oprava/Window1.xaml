@@ -1,0 +1,25 @@
+﻿<Window x:Class="Kino_Oprava.Window1"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Kino_Oprava"
+        mc:Ignorable="d"
+        Title="Window1" Height="450" Width="800" Loaded="Window1_Loaded">
+    <Grid>
+        <UniformGrid Name="grid" RenderTransformOrigin="0.5,0.5" Margin="10,91,9,1">
+            <UniformGrid.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform AngleX="0.131"/>
+                    <RotateTransform/>
+                    <TranslateTransform X="-0.498"/>
+                </TransformGroup>
+            </UniformGrid.RenderTransform>
+        </UniformGrid>
+        <TextBox HorizontalAlignment="Center" IsReadOnly="True" Margin="0,55,0,0" TextWrapping="Wrap" Text="Plátno" VerticalAlignment="Top" Width="528" Height="22" Background="#FFD6D6D6"/>
+        <Label x:Name="filmLabel" Content="Film" HorizontalAlignment="Left" Margin="17,37,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="cinemaLabel" Content="Cas" HorizontalAlignment="Left" Margin="17,66,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="dateLabel" Content="Kino" HorizontalAlignment="Left" Margin="17,6,0,0" VerticalAlignment="Top"/>
+    </Grid>
+</Window>

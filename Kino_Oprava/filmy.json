@@ -1,0 +1,42 @@
+﻿[
+	{
+		"uuid": "619f1f1a5502af99215e01060d719bf5151103a9",
+		"name": "Evil Dead: Rise",
+		"date": "2023-04-20 18:00",
+		"cinema": {
+			"name": "Cinestar Praha",
+			"rows": 3,
+			"columns": 10
+		}
+	},
+	{
+		"uuid": "5673bb4d5a76146235d1b7220b14f8dc2f43c8ab",
+		"name": "The Whale",
+		"date": "2023-04-20 20:00",
+		"cinema": {
+			"name": "Kino Aero Praha",
+			"rows": 9,
+			"columns": 21
+		}
+	},
+	{
+		"uuid": "3ca2197921e0b773a83217c219939fd5afd182d8",
+		"name": "Spongebob ve filmu",
+		"date": "2023-04-20 15:00",
+		"cinema": {
+			"name": "CineMovie Brno",
+			"rows": 8,
+			"columns": 8
+		}
+	},
+	{
+		"uuid": "5228ad8g6h24685132d1b7220b14f8dc2f43c8ab",
+		"name": "Barbie",
+		"date": "2023-04-20 11:00",
+		"cinema": {
+			"name": "Cinema City Plzen",
+			"rows": 10,
+			"columns": 25
+		}
+	}
+]
