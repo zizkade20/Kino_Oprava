@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
@@ -41,6 +42,26 @@ namespace Kino_Oprava
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
+            /*
+            string emailPattern = @"^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$";
+            Regex regex = new Regex(emailPattern);
+
+            string email = t2.Text.Trim();
+            string name = t1.Text.Trim();
+
+            bool ok = false;
+            while (ok)
+            {
+                if (string.IsNullOrEmpty(email))
+                {
+                    
+                }
+                else if (!regex.IsMatch(email))
+                {
+                    
+                }
+                else
+                {*/
             Reservations temp = new Reservations(t1.Text, t2.Text, rowLabel.Content.ToString(), columnLabel.Content.ToString(), filmLabel.Content.ToString(), cinemaLabel.Content.ToString(), dateLabel.Content.ToString());
             var db = new SQLiteConnection("../../db/database.db3");
             db.Insert(temp);
@@ -49,6 +70,10 @@ namespace Kino_Oprava
 
             MessageBox.Show("Vaše data byla uložena ;)");
             Application.Current.Shutdown();
+                /*}
+            }
+                */
+            
         }
     }
 }
