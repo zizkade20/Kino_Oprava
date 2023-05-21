@@ -78,6 +78,13 @@ namespace Kino_Oprava
             {
                 for (int i = 1; i <= columns; i++)
                 {
+                    
+                    SQLiteConnection connection = new SQLiteConnection("../../db/database.db3");
+
+                    List<Reservations> data = connection.Table<Reservations>().ToList();
+
+                   
+
                     Button button = new Button()
                     {
                         Content = string.Format("{0}", i),
@@ -85,33 +92,26 @@ namespace Kino_Oprava
                         Tag = i
                     };
 
-
-                    /*
-
-                    SQLiteConnection connection = new SQLiteConnection("../../db/database.db3");
-
-                    bool valuesExist = connection.Table<Reservations>().Any(record => record.Row == rows.ToString() && record.Column == columns.ToString());
-
-
-                    if (valuesExist == true)
+                    if (data.Exists(item => item.Row == y.ToString() && item.Column == i.ToString() && item.Film == filmName))
                     {
                         button.Background = Brushes.Red;
+
                     }
                     else
                     {
                         button.Background = Brushes.LightGreen;
-
                     }
 
-                    
-                    */
-                    
-                     
-                     
-                    
-                    button.Click += new RoutedEventHandler(button_Click);
-                    button.Margin = new Thickness(0, 15, 0, 0);
 
+                    if (button.Background == Brushes.Red)
+                    {
+
+                    } else
+                    {
+                        button.Click += new RoutedEventHandler(button_Click);
+                    }
+
+                    button.Margin = new Thickness(0, 15, 0, 0);
                     this.grid.Children.Add(button);
                     button.Name = "button_" + y + "_" + i;
                 }
@@ -136,8 +136,13 @@ namespace Kino_Oprava
 
         void button_Click(object sender, RoutedEventArgs e)
         {
+
+            string film = filmLabel.Content.ToString();
+            string cinema = cinemaLabel.Content.ToString();
+            string date = dateLabel.Content.ToString();
+
             Button button = (Button)sender;
-            Window2 window2 = new Window2(button.Name, filmLabel.Content.ToString(), cinemaLabel.Content.ToString(), dateLabel.Content.ToString());
+            Window2 window2 = new Window2(button.Name, film, cinema, date);
             window2.Show();
 
 

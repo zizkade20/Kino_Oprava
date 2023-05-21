@@ -42,12 +42,12 @@ namespace Kino_Oprava
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            /*
-            string emailPattern = @"^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$";
-            Regex regex = new Regex(emailPattern);
-
             string email = t2.Text.Trim();
-            string name = t1.Text.Trim();
+
+            string emailPattern = @"^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$";
+            bool isValidEmail = Regex.IsMatch(email, emailPattern);
+
+            //string name = t1.Text.Trim();
 
             bool ok = false;
             while (ok)
@@ -56,23 +56,30 @@ namespace Kino_Oprava
                 {
                     
                 }
-                else if (!regex.IsMatch(email))
+                else if (!isValidEmail)
                 {
                     
                 }
                 else
-                {*/
-            Reservations temp = new Reservations(t1.Text, t2.Text, rowLabel.Content.ToString(), columnLabel.Content.ToString(), filmLabel.Content.ToString(), cinemaLabel.Content.ToString(), dateLabel.Content.ToString());
-            var db = new SQLiteConnection("../../db/database.db3");
-            db.Insert(temp);
-            db.Close();
+                {
+                    string column = columnLabel.Content.ToString();
+                    string row = rowLabel.Content.ToString();
+                    string film = filmLabel.Content.ToString();
+                    string cinema = cinemaLabel.Content.ToString();
+                    string date = dateLabel.Content.ToString();
 
 
-            MessageBox.Show("Vaše data byla uložena ;)");
-            Application.Current.Shutdown();
-                /*}
+                    Reservations temp = new Reservations(t1.Text, t2.Text, row, column, film, cinema, date);
+                    var db = new SQLiteConnection("../../db/database.db3");
+                    db.Insert(temp);
+                    db.Close();
+
+
+                    MessageBox.Show("Vaše data byla uložena ;)");
+                    Application.Current.Shutdown();
+                }
             }
-                */
+                
             
         }
     }
