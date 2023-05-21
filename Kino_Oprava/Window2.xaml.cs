@@ -43,42 +43,45 @@ namespace Kino_Oprava
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             string email = t2.Text.Trim();
+            string name = t1.Text.Trim();
+
 
             string emailPattern = @"^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$";
+            string namePattern = @"^[A-Za-z]+(?: [A-Za-z]+(?=.*\s))?(?: [A-Za-z]+)?$";
+
             bool isValidEmail = Regex.IsMatch(email, emailPattern);
 
-            //string name = t1.Text.Trim();
+            bool isValidName = Regex.IsMatch(name, namePattern);
 
-            bool ok = false;
-            while (ok)
+            
+            
+            if (!isValidEmail)
             {
-                if (string.IsNullOrEmpty(email))
-                {
-                    
-                }
-                else if (!isValidEmail)
-                {
-                    
-                }
-                else
-                {
-                    string column = columnLabel.Content.ToString();
-                    string row = rowLabel.Content.ToString();
-                    string film = filmLabel.Content.ToString();
-                    string cinema = cinemaLabel.Content.ToString();
-                    string date = dateLabel.Content.ToString();
 
-
-                    Reservations temp = new Reservations(t1.Text, t2.Text, row, column, film, cinema, date);
-                    var db = new SQLiteConnection("../../db/database.db3");
-                    db.Insert(temp);
-                    db.Close();
-
-
-                    MessageBox.Show("Vaše data byla uložena ;)");
-                    Application.Current.Shutdown();
-                }
             }
+            else if (!isValidName)
+            {
+
+            }
+            else
+            {
+                string column = columnLabel.Content.ToString();
+                string row = rowLabel.Content.ToString();
+                string film = filmLabel.Content.ToString();
+                string cinema = cinemaLabel.Content.ToString();
+                string date = dateLabel.Content.ToString();
+
+
+                Reservations temp = new Reservations(t1.Text, t2.Text, row, column, film, cinema, date);
+                var db = new SQLiteConnection("../../db/database.db3");
+                db.Insert(temp);
+                db.Close();
+
+
+                MessageBox.Show("Vaše data byla uložena ;)");
+                Application.Current.Shutdown();
+            }
+            
                 
             
         }
