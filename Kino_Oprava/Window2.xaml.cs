@@ -45,14 +45,14 @@ namespace Kino_Oprava
             string email = t2.Text.Trim();
             string name = t1.Text.Trim();
 
-
+            
             string emailPattern = @"^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$";
             string namePattern = @"^[A-Za-z]+(?: [A-Za-z]+(?=.*\s))?(?: [A-Za-z]+)?$";
 
             bool isValidEmail = Regex.IsMatch(email, emailPattern);
 
             bool isValidName = Regex.IsMatch(name, namePattern);
-
+            
             
             
             if (!isValidEmail)

@@ -16,7 +16,6 @@ using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using static SQLite.TableMapping;
 
-
 namespace Kino_Oprava
 {
     /// <summary>
@@ -52,8 +51,6 @@ namespace Kino_Oprava
                 db.CreateTable<Reservations>();
                 db.Close();
             }
-
-
         }
         public Window1(string FilmID)
         {
