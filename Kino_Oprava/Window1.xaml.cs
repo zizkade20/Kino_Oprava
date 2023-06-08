@@ -15,6 +15,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using static SQLite.TableMapping;
+using Path = System.IO.Path;
 
 namespace Kino_Oprava
 {
@@ -41,13 +42,10 @@ namespace Kino_Oprava
         private void Window1_Loaded(object sender, RoutedEventArgs e)
         {
 
-            if (System.IO.File.Exists("../../db/database.db3"))
-            {
-
-            }
+            if (System.IO.File.Exists(@"/db/database.db3")){}
             else
             {
-                var db = new SQLiteConnection("../../db/database.db3");
+                var db = new SQLiteConnection(@"/db/database.db3");
                 db.CreateTable<Reservations>();
                 db.Close();
             }
@@ -56,6 +54,7 @@ namespace Kino_Oprava
         {
             InitializeComponent();
 
+            Path.Combine("");
 
             string json = File.ReadAllText(@"../../filmy.json");
 
@@ -98,9 +97,9 @@ namespace Kino_Oprava
                         Tag = i
                     };
 
-                    if (System.IO.File.Exists("../../db/database.db3"))
+                    if (System.IO.File.Exists(@"/db/database.db3"))
                     {
-                        SQLiteConnection connection = new SQLiteConnection("../../db/database.db3");
+                        SQLiteConnection connection = new SQLiteConnection(@"/db/database.db3");
 
                         List<Reservations> data = connection.Table<Reservations>().ToList();
 

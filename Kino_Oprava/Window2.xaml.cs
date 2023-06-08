@@ -73,7 +73,7 @@ namespace Kino_Oprava
 
 
                 Reservations insert = new Reservations(t1.Text, t2.Text, row, column, film, cinema, date);
-                var db = new SQLiteConnection("../../db/database.db3");
+                var db = new SQLiteConnection(@"../../db/database.db3");
                 db.Insert(insert);
                 db.Close();
 
