@@ -126,7 +126,6 @@ namespace Kino_Oprava
                         {
                             button.Click += new RoutedEventHandler(button_Click);
                         }
-
                         button.Margin = new Thickness(0, 15, 0, 0);
                         this.grid.Children.Add(button);
                         button.Name = "button_" + y + "_" + i;

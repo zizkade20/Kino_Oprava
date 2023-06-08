@@ -72,9 +72,9 @@ namespace Kino_Oprava
                 string date = dateLabel.Content.ToString();
 
 
-                Reservations temp = new Reservations(t1.Text, t2.Text, row, column, film, cinema, date);
+                Reservations insert = new Reservations(t1.Text, t2.Text, row, column, film, cinema, date);
                 var db = new SQLiteConnection("../../db/database.db3");
-                db.Insert(temp);
+                db.Insert(insert);
                 db.Close();
 
 
